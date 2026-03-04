@@ -1,37 +1,21 @@
 {
-  description = "";
+  description = "My packages flake";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }:
-  let
-    systems = [ "x86_64-linux" "aarch64-linux" ];
+    let
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      overlays.default = final: prev: import ./packages { pkgs = final; };
 
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs systems (system:
-        f system);
-
-  in {
-
-    # Expose packages normally
-    packages = forAllSystems (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in {
-        wld = pkgs.callPackage ./packages/wld {};
-        swc = pkgs.callPackage ./packages/swc {};
-      });
-
-    # Provide default package
-    defaultPackage = forAllSystems (system:
-      self.packages.${system}.swc
-    );
-
-    # Expose overlay
-    overlays.default = final: prev: {
-      wld = final.callPackage ./packages/wld {};
-      swc = final.callPackage ./packages/swc {};
+      packages = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
+        in
+        import ./packages { inherit pkgs; }
+      );
     };
-
-  };
 }
