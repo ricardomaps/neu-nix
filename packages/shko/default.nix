@@ -10,8 +10,8 @@
 	libxcb,
 	libxcb-wm,
   zig,
-  swc,
-  wld,
+  neuswc,
+  neuwld,
   lib,
 }:
 
@@ -34,8 +34,8 @@ stdenv.mkDerivation {
   	libdrm
   	libinput
   	pixman
-  	swc
-  	wld
+  	neuswc
+  	neuwld
   	libudev0-shim
   	wayland
   	libxkbcommon

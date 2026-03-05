@@ -11,7 +11,7 @@
   fetchFromSourcehut,
 }:
 stdenv.mkDerivation {
-  pname = "wld";
+  pname = "neuwld";
   version = "0.0";
   src = fetchFromSourcehut {
     owner = "~shrub900";

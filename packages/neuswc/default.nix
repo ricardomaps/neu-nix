@@ -3,7 +3,7 @@
   pkg-config,
   wayland-scanner,
   libdrm,
-  wld,
+  neuwld,
   wayland,
   wayland-protocols,
   pixman,
@@ -17,7 +17,7 @@
 	fetchFromSourcehut,
 }:
 stdenv.mkDerivation {
-  pname = "swc";
+  pname = "neuswc";
   version = "0-unstable-2026-03-02";
 
   src = fetchFromSourcehut {
@@ -35,7 +35,7 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-    wld
+    neuwld
     wayland
     wayland-protocols
     pixman
