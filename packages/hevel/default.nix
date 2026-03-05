@@ -43,4 +43,6 @@ stdenv.mkDerivation {
   	# libxcb
   	# libxcb-wm
   ];
+
+  makeFlags = ["PREFIX=$(out)"];
 }
