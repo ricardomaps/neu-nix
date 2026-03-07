@@ -12,7 +12,7 @@
   wayland-scanner,
   wayland-protocols,
   libdrm,
-  libxkbcommon
+  libxkbcommon,
 }:
 stdenv.mkDerivation {
   pname = "hevel";
@@ -31,18 +31,18 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-  	libdrm
-  	libinput
-  	pixman
-  	swc
-  	wld
-  	# libudev0-shim
-  	wayland
-  	wayland-protocols
-  	libxkbcommon
-  	# libxcb
-  	# libxcb-wm
+    libdrm
+    libinput
+    pixman
+    swc
+    wld
+    # libudev0-shim
+    wayland
+    wayland-protocols
+    libxkbcommon
+    # libxcb
+    # libxcb-wm
   ];
 
-  makeFlags = ["PREFIX=$(out)"];
+  makeFlags = [ "PREFIX=$(out)" ];
 }

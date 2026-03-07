@@ -8,13 +8,13 @@
   wayland-protocols,
   pixman,
   libudev0-shim,
-	libxkbcommon,
-	fontconfig,
-	libinput,
-	libxcb,
-	libxcb-wm,
-	stdenv,
-	fetchFromSourcehut,
+  libxkbcommon,
+  fontconfig,
+  libinput,
+  libxcb,
+  libxcb-wm,
+  stdenv,
+  fetchFromSourcehut,
 }:
 stdenv.mkDerivation {
   pname = "neuswc";
@@ -41,11 +41,11 @@ stdenv.mkDerivation {
     pixman
     libdrm
     libudev0-shim
-  	libxkbcommon
-  	fontconfig
-  	libinput
-  	libxcb
-  	libxcb-wm
+    libxkbcommon
+    fontconfig
+    libinput
+    libxcb
+    libxcb-wm
   ];
 
   patchPhase = ''
@@ -55,7 +55,5 @@ stdenv.mkDerivation {
 
   CFLAGS = "-I${libdrm.dev}/include/libdrm"; # Uncomment this line to fix compilation error
 
-  makeFlags = ["PREFIX=$(out)"];
+  makeFlags = [ "PREFIX=$(out)" ];
 }
-
-

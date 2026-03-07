@@ -34,8 +34,9 @@ stdenv.mkDerivation {
     wayland
   ];
 
-  makeFlags = ["PREFIX=$(out)"];
-  outputs = ["out" "dev"];
+  makeFlags = [ "PREFIX=$(out)" ];
+  outputs = [
+    "out"
+    "dev"
+  ];
 }
-
-

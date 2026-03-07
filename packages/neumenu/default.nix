@@ -35,5 +35,8 @@ stdenv.mkDerivation {
     pixman
   ];
 
-  makeFlags = ["PREFIX=$(out)" "SWCPROTO=${neuswc}/share/swc/swc.xml"];
+  makeFlags = [
+    "PREFIX=$(out)"
+    "SWCPROTO=${neuswc}/share/swc/swc.xml"
+  ];
 }

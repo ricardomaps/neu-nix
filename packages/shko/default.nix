@@ -4,11 +4,11 @@
   pixman,
   libdrm,
   wayland,
-	libinput,
-	libudev0-shim,
-	libxkbcommon,
-	libxcb,
-	libxcb-wm,
+  libinput,
+  libudev0-shim,
+  libxkbcommon,
+  libxcb,
+  libxcb-wm,
   zig,
   neuswc,
   neuwld,
@@ -28,16 +28,15 @@ stdenv.mkDerivation {
   dontSetZigDefaultFlags = true;
 
   buildInputs = [
-  	libdrm
-  	libinput
-  	pixman
-  	neuswc
-  	neuwld
-  	libudev0-shim
-  	wayland
-  	libxkbcommon
-  	libxcb
-  	libxcb-wm
+    libdrm
+    libinput
+    pixman
+    neuswc
+    neuwld
+    libudev0-shim
+    wayland
+    libxkbcommon
+    libxcb
+    libxcb-wm
   ];
 }
-
