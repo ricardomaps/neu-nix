@@ -1,5 +1,5 @@
 {
-  description = "My packages flake";
+  description = "Neulibs packages for nix";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
