@@ -56,7 +56,7 @@ stdenv.mkDerivation {
       --replace "4755" "755"
   '';
 
-  CFLAGS = "-I${libdrm.dev}/include/libdrm"; # Uncomment this line to fix compilation error
+  CFLAGS = "-I${libdrm.dev}/include/libdrm";
 
   makeFlags = [
     "PREFIX=$(out)"
