@@ -24,7 +24,7 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~shrub900";
     repo = "neuswc";
-    rev = "f0147d3d9b84f5d81ad14260f08808afc563e54d";
+    rev = "d7a9eda640d4b4d96f6158266099d3c3fe8e5673";
     hash = "sha256-2y7nKZKKWQaxJSuz5ia4VIcR4ibsAt/M6oqDy5jRpg4=";
   };
 
