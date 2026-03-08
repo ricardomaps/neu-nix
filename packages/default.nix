@@ -6,8 +6,9 @@ let
     neumenu = self.callPackage ./neumenu { };
     hevel = self.callPackage ./hevel { };
     shko = self.callPackage ./shko { };
+    swall = self.callPackage ./swall { };
   });
 in
 {
-  inherit (scope) neuwld neuswc neumenu shko hevel;
+  inherit (scope) neuwld neuswc neumenu shko hevel swall;
 }
