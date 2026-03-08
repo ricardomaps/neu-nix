@@ -8,8 +8,9 @@ let
     shko = self.callPackage ./shko { };
     swall = self.callPackage ./swall { };
     hack = self.callPackage ./hack { };
+    swclock = self.callPackage ./swclock { };
   });
 in
 {
-  inherit (scope) neuwld neuswc neumenu shko hevel swall hack;
+  inherit (scope) neuwld neuswc neumenu shko hevel swall hack swclock;
 }
