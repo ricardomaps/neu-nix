@@ -15,6 +15,7 @@
   libxcb-wm,
   stdenv,
   fetchFromSourcehut,
+  patches ? [],
 }:
 stdenv.mkDerivation {
   pname = "neuswc";
@@ -48,7 +49,9 @@ stdenv.mkDerivation {
     libxcb-wm
   ];
 
-  patchPhase = ''
+  inherit patches;
+
+  postPatch = ''
     substituteInPlace Makefile \
       --replace "4755" "755"
   '';
