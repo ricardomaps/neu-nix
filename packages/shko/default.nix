@@ -1,4 +1,6 @@
 {
+  lib,
+  writeText,
   stdenv,
   fetchFromCodeberg,
   pixman,
@@ -11,6 +13,7 @@
   zig,
   neuswc,
   neuwld,
+  config ? null,
 }:
 
 stdenv.mkDerivation {
@@ -37,4 +40,12 @@ stdenv.mkDerivation {
     libxcb
     libxcb-wm
   ];
+
+  postPatch =
+    let
+      configFile =
+        if lib.isDerivation config || builtins.isPath config then config else writeText "config.zig" config;
+    in
+    lib.optionalString (config != null)  "cp ${configFile} config.zig";
+
 }
