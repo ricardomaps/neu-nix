@@ -18,7 +18,7 @@
 }:
 stdenv.mkDerivation {
   pname = "neuswc";
-  version = "0-unstable-2026-03-02";
+  version = "0.0";
 
   src = fetchFromSourcehut {
     owner = "~shrub900";
