@@ -41,11 +41,6 @@ stdenv.mkDerivation {
     libxcb-wm
   ];
 
-  postInstall = ''
-  printf '#!/bin/sh\nexec swc-launch %s "$@"\n' "$out/bin/shko" > $out/bin/shko-launch
-  chmod +x $out/bin/shko-launch
-'';
-
   postPatch =
     let
       configZigFile =
