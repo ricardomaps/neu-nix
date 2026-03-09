@@ -38,7 +38,8 @@ stdenv.mkDerivation {
   ];
 
   makeFlags = [
-    "DESTDIR=$(out)"
+    "PREFIX=$(out)"
+    "DESTDIR="
   ];
 
   # I'm not sure what goes wrong here, may look into it later
