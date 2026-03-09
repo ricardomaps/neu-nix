@@ -1,6 +1,21 @@
 ## neu-nix
 A nix flake for neuswc and neuwld packages (shko, neumenu, hack, swall...).
 
+### Packages
+The packages this flake currently provides are:
+
+- `neuwld`
+- `neuswc`
+- `neumenu`
+- `shko`
+- `hevel`
+- `swall`
+- `hack`
+- `swclock`
+- `swiv`
+- `mojito`
+- `hst`
+
 ### Installation
 Add the flake as an input to your own system flake:
 ```nix
