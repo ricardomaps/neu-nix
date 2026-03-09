@@ -1,4 +1,6 @@
 {
+  lib,
+  writeText,
   stdenv,
   fetchFromSourcehut,
   bmake,
@@ -16,6 +18,7 @@
   libxcb,
   libxcb-wm,
   udev,
+  conf ? null,
 }:
 stdenv.mkDerivation {
   pname = "hevel";
@@ -51,4 +54,11 @@ stdenv.mkDerivation {
   makeFlags = [
     "PREFIX=$(out)"
   ];
+
+  postPatch =
+  let
+    configFile =
+      if lib.isDerivation conf || builtins.isPath conf then conf else writeText "config.zig" conf;
+  in
+  lib.optionalString (conf != null)  "cp ${configFile} config.zig";
 }
