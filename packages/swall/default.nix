@@ -1,4 +1,5 @@
 {
+  lib,
   fetchFromSourcehut,
   stdenv,
   pkg-config,
@@ -38,4 +39,11 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = {
+    description = "Wallpaper setter for neuswc";
+    homepage = "https://git.sr.ht/~uint/swall";
+    license = lib.licenses.isc;
+    mainProgram = "swall";
+  };
 }

@@ -1,4 +1,5 @@
 {
+  lib,
   stdenv,
   fetchFromSourcehut,
   pkg-config,
@@ -39,4 +40,11 @@ stdenv.mkDerivation {
     "PREFIX=$(out)"
     "SWCPROTO=${neuswc}/share/swc/swc.xml"
   ];
+
+  meta = {
+    description = "An efficient dynamic menu for wayland";
+    homepage = "https://git.sr.ht/~uint/neumenu";
+    license = lib.licenses.mit;
+    mainProgram = "neumenu";
+  };
 }

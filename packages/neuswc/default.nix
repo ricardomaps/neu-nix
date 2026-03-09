@@ -1,4 +1,5 @@
 {
+  lib,
   bmake,
   pkg-config,
   wayland-scanner,
@@ -62,4 +63,11 @@ stdenv.mkDerivation {
     "PREFIX=$(out)"
     "ENABLE_DEBUG=0"
   ];
+
+  meta = {
+    description = "Fork of swc for hevel window manager";
+    homepage = "https://git.sr.ht/~shrub900/neuswc";
+    license = lib.licenses.isc;
+    mainProgram = "swc-launch";
+  };
 }

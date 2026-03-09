@@ -1,4 +1,5 @@
 {
+  lib,
   fetchFromSourcehut,
   stdenv,
   pixman,
@@ -46,4 +47,10 @@ stdenv.mkDerivation {
   makeFlags = [
     "PREFIX=$(out)"
   ];
+
+  meta = {
+    description = "A featherweight, lime-scented (and somewhat alcoholic) bar for Wayland";
+    homepage = "https://git.sr.ht/~dlm/mojito";
+    license = lib.licenses.isc;
+  };
 }

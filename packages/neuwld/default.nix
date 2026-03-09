@@ -1,4 +1,5 @@
 {
+  lib,
   bmake,
   pkg-config,
   wayland-scanner,
@@ -43,4 +44,10 @@ stdenv.mkDerivation {
     "out"
     "dev"
   ];
+
+  meta = {
+    description = "A drawing library that targets Wayland";
+    homepage = "https://git.sr.ht/~shrub900/neuwld";
+    license = lib.licenses.mit;
+  };
 }

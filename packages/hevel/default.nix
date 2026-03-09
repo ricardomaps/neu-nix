@@ -61,4 +61,11 @@ stdenv.mkDerivation {
       if lib.isDerivation conf || builtins.isPath conf then conf else writeText "config.h" conf;
   in
   lib.optionalString (conf != null)  "cp ${configFile} config.h";
+
+  meta = {
+    description = "Scrollable, floating window manager for Wayland that uses mouse chords for all commands";
+    homepage = "https://git.sr.ht/~dlm/hevel";
+    license = lib.licenses.isc;
+    mainProgram = "hevel";
+  };
 }

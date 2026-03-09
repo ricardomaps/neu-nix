@@ -35,4 +35,10 @@ stdenv.mkDerivation {
     "DESTDIR=$(out)"
     "BINDIR=/bin"
   ];
+
+  meta = {
+    description = "A simple wayland image viewer";
+    homepage = "https://git.sr.ht/~shrub900/swiv";
+    mainProgram = "swiv";
+  };
 }

@@ -45,4 +45,10 @@ stdenv.mkDerivation {
     
     runHook postInstall
   '';
+
+  meta = {
+    description = "xclock-like analog clock program for wayland, using neuwld";
+    homePage = "https://git.sr.ht/~shrub900/swclock";
+    mainProgram = "swclock"
+  };
 }

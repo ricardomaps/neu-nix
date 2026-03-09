@@ -1,4 +1,5 @@
 {
+  lib,
   fetchFromSourcehut,
   stdenv,
   pkg-config,
@@ -50,4 +51,11 @@ stdenv.mkDerivation {
     substituteInPlace Makefile \
       --replace-fail "tic -sx st-wl.info" ""
   '';
+
+  meta = {
+    description = "Fork of st-wl using neuwld";
+    homepage = "https://git.sr.ht/~dlm/hst";
+    license = lib.licenses.mit;
+    mainProgram = "st-wl";
+  };
 }

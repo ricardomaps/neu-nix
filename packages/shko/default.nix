@@ -48,4 +48,10 @@ stdenv.mkDerivation {
     in
     lib.optionalString (configZig != null)  "cp ${configZigFile} config.zig";
 
+  meta = {
+    description = "Keyboard-oriented, floating, zomming, scrolling window manager";
+    homepage = "https://git.sr.ht/~chld/shko";
+    license = lib.licenses.unlicense;
+    mainProgram = "shko";
+  };
 }
