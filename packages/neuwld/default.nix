@@ -37,11 +37,6 @@ stdenv.mkDerivation {
 
   makeFlags = [
     "PREFIX=$(out)"
-    "ENABLE_SHARED=1"
-    "ENABLE_STATIC=0"
-    "ENABLE_WAYLAND=1"
-    "ENABLE_DRM=1"
-    "ENABLE_PIXMAN=1"
   ];
 
   outputs = [

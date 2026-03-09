@@ -60,8 +60,6 @@ stdenv.mkDerivation {
 
   makeFlags = [
     "PREFIX=$(out)"
-    "INPUT_BACKEND=libinput"
-    "ENABLE_LIBUDEV=1"
-    "ENABLE_XWAYLAND=1"
+    "ENABLE_DEBUG=0"
   ];
 }
