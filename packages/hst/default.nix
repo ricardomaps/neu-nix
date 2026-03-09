@@ -10,6 +10,7 @@
   pixman,
   libxkbcommon,
   libdrm,
+  patches ? [],
 }:
 stdenv.mkDerivation {
   pname = "hst";
@@ -41,6 +42,8 @@ stdenv.mkDerivation {
     "PREFIX=$(out)"
     "DESTDIR="
   ];
+
+  inherit patches;
 
   # I'm not sure what goes wrong here, may look into it later
   postPatch = ''
