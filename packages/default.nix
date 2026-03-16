@@ -1,15 +1,24 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib }:
 let
-  wrapWithSwcLaunch = swc: pkg:
-    let
-      launcher = pkgs.writeShellScriptBin "${lib.getName pkg}-launch" ''
-        exec ${swc}/bin/swc-launch ${lib.getExe pkg} "$@"
-      '';
-    in
-    pkgs.symlinkJoin {
-      name = "${lib.getName pkg}-wrapped";
-      paths = [ pkg launcher ];
-    };
+  wrapWithSwcLaunch =
+    swc: pkg:
+    pkg.overrideAttrs (
+      final: prev: {
+        postInstall =
+          let
+            script = ''
+              #!/usr/bin/env bash
+              exec ${swc}/bin/swc-launch $out/bin/${pkg.meta.mainProgram} \"\$@\" 
+            '';
+            path = "$out/bin/${lib.getName pkg}-launch";
+          in
+          prev.postInstall or ""
+          + ''
+            echo "${script}" >> ${path}
+            chmod +x ${path}
+          '';
+      }
+    );
   scope = pkgs.lib.makeScope pkgs.newScope (self: {
     neuwld = self.callPackage ./neuwld { };
     neuswc = self.callPackage ./neuswc { };
@@ -36,5 +45,6 @@ in
     swclock
     swiv
     mojito
-    hst;
+    hst
+    ;
 }
