@@ -2,6 +2,7 @@
   lib,
   writeText,
   stdenv,
+  writeShellScriptBin,
   fetchFromCodeberg,
   pixman,
   libdrm,
@@ -26,8 +27,13 @@ stdenv.mkDerivation {
     hash = "sha256-z+/UPQxpmPfyxMt2Cr50u+rLK8VQZHrO3oPE2hEvGwg=";
   };
 
-  nativeBuildInputs = [ zig.hook ];
   dontSetZigDefaultFlags = true;
+  nativeBuildInputs = [
+    zig.hook
+    (writeShellScriptBin "shko-launch" ''
+      exec ${neuswc}/bin/swc-launch $out/bin/shko "$@"
+    '')
+  ];
 
   buildInputs = [
     libdrm

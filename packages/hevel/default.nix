@@ -2,6 +2,7 @@
   lib,
   writeText,
   stdenv,
+  writeShellScriptBin,
   fetchFromSourcehut,
   bmake,
   neuwld,
@@ -34,6 +35,9 @@ stdenv.mkDerivation {
     bmake
     pkg-config
     wayland-scanner
+    (writeShellScriptBin "hevel-launch" ''
+      exec ${neuswc}/bin/swc-launch $out/bin/hevel "$@"
+    '')
   ];
 
   buildInputs = [

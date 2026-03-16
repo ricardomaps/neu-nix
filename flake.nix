@@ -21,13 +21,7 @@
           pkgs = final;
         };
 
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
-        in
-        import ./. { inherit pkgs; }
-      );
+      packages = forAllSystems (system: import ./. { pkgs = nixpkgs.legacyPackages.${system}; });
 
       devShell = forAllSystems (
         system:
