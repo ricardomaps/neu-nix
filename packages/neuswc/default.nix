@@ -57,20 +57,7 @@ stdenv.mkDerivation {
     libxcb-wm
   ];
 
-  # postPatch = ''
-  #   substituteInPlace meson.build \
-  #     --replace-fail "meson_version: '>=1.1'" "meson_version: '>=1.8'"
-  # '';
-
-
   inherit patches;
-
-  # CFLAGS = "-I${libdrm.dev}/include/libdrm";
-
-  makeFlags = [
-    "PREFIX=$(out)"
-    "ENABLE_DEBUG=0"
-  ];
 
   meta = {
     description = "Fork of swc for hevel window manager";

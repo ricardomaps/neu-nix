@@ -40,15 +40,6 @@ stdenv.mkDerivation {
     wayland
   ];
 
-  # makeFlags = [
-  #   "PREFIX=$(out)"
-  # ];
-
-  # outputs = [
-  #   "out"
-  #   "dev"
-  # ];
-
   meta = {
     description = "A drawing library that targets Wayland";
     homepage = "https://git.sr.ht/~shrub900/neuwld";
