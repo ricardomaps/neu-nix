@@ -15,6 +15,9 @@ The packages this flake currently provides are:
 - `swiv`
 - `mojito`
 - `hst`
+- `tohu`
+- `neuwm`
+- `wsxwm`
 
 ### Compositors
 You can use the compositors in this flake in two ways. If you add neuswc to your system packages, you can launch them with swc-launch:
