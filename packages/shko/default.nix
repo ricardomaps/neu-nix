@@ -22,8 +22,8 @@ stdenv.mkDerivation {
   src = fetchFromCodeberg {
     owner = "chld";
     repo = "shko";
-    rev = "e72377af2bc7a7fa309a8205af8d0e01943dcbd7";
-    hash = "sha256-z+/UPQxpmPfyxMt2Cr50u+rLK8VQZHrO3oPE2hEvGwg=";
+    rev = "916a997a4a83d58d1628370f4a6237973db8042e";
+    hash = "sha256-+jNlmGoKe58SKVY85UYF1s2fnMuPvE62wC+O3aAT4Gw=";
   };
 
   nativeBuildInputs = [ zig.hook ];
