@@ -57,6 +57,8 @@ stdenv.mkDerivation {
     libxcb-wm
   ];
 
+  mesonAutoFeatures = "auto";
+
   inherit patches;
 
   meta = {
