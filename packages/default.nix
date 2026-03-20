@@ -27,6 +27,7 @@ let
     shko = wrapWithSwcLaunch self.neuswc (self.callPackage ./shko { });
     wsxwm = wrapWithSwcLaunch self.neuswc (self.callPackage ./wsxwm { });
     tohu = wrapWithSwcLaunch self.neuswc (self.callPackage ./tohu { });
+    neuwm = wrapWithSwcLaunch self.neuswc (self.callPackage ./neuwm { });
     swall = self.callPackage ./swall { };
     hack = self.callPackage ./hack { };
     swclock = self.callPackage ./swclock { };
@@ -50,5 +51,6 @@ in
     hst
     wsxwm
     tohu
+    neuwm
     ;
 }
