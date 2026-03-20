@@ -1,22 +1,25 @@
 {
   lib,
-  bmake,
+  meson,
   pkg-config,
   wayland-scanner,
   libdrm,
   neuwld,
   wayland,
+  xwayland,
   wayland-protocols,
   pixman,
   udev,
-  libxkbcommon,
+  ninja,
   fontconfig,
+  libxkbcommon,
   libinput,
   libxcb,
   libxcb-wm,
   stdenv,
   fetchFromSourcehut,
-  patches ? [ ],
+  patches ? [],
+  xwaylandSupport ? true,
 }:
 stdenv.mkDerivation {
   pname = "neuswc";
@@ -25,12 +28,13 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~shrub900";
     repo = "neuswc";
-    rev = "d7a9eda640d4b4d96f6158266099d3c3fe8e5673";
-    hash = "sha256-2y7nKZKKWQaxJSuz5ia4VIcR4ibsAt/M6oqDy5jRpg4=";
+    rev = "bf9503ad5088c14dd175c95b7cd298e8bfe23976";
+    hash = "sha256-ue1z/dabHgcWXDq1ahJPrH6IxbsSDUbPtfDYWLBULWQ=";
   };
 
   nativeBuildInputs = [
-    bmake
+    meson
+    ninja
     pkg-config
     wayland-scanner
     libdrm
@@ -44,25 +48,16 @@ stdenv.mkDerivation {
     libdrm
     udev
     libxkbcommon
-    fontconfig
     libinput
+    fontconfig
+  ]
+  ++ lib.optionals xwaylandSupport [
+    xwayland
     libxcb
     libxcb-wm
   ];
 
   inherit patches;
-
-  postPatch = ''
-    substituteInPlace Makefile \
-      --replace "4755" "755"
-  '';
-
-  CFLAGS = "-I${libdrm.dev}/include/libdrm";
-
-  makeFlags = [
-    "PREFIX=$(out)"
-    "ENABLE_DEBUG=0"
-  ];
 
   meta = {
     description = "Fork of swc for hevel window manager";

@@ -1,8 +1,10 @@
 {
   lib,
-  bmake,
+  meson,
   pkg-config,
   wayland-scanner,
+  doxygen,
+  ninja,
   fontconfig,
   pixman,
   freetype,
@@ -18,14 +20,16 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~shrub900";
     repo = "neuwld";
-    rev = "235b7b62be7d7c9eefa011eac4a5b78ba7390f1c";
-    hash = "sha256-0+rgWrefh19bBEmcqw0Lal1PHkendtCkQ2EIg+LHb74=";
+    rev = "1039dce08fc9bc1c8f03394e6a07f755deb5da0a";
+    hash = "sha256-gfPeK2H/FtXKiOYrRxY/kQDBs2SyrY78R5blpii5nfM=";
   };
 
   nativeBuildInputs = [
-    bmake
+    meson
     pkg-config
     wayland-scanner
+    ninja
+    doxygen
   ];
 
   buildInputs = [
@@ -34,15 +38,6 @@ stdenv.mkDerivation {
     freetype
     libdrm
     wayland
-  ];
-
-  makeFlags = [
-    "PREFIX=$(out)"
-  ];
-
-  outputs = [
-    "out"
-    "dev"
   ];
 
   meta = {
