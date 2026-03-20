@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
-  wrapWithSwcLaunch = swc: pkg:
+  wrapWithSwcLaunch =
+    swc: pkg:
     let
       launcher = pkgs.writeShellScriptBin "${lib.getName pkg}-launch" ''
         exec ${swc}/bin/swc-launch ${lib.getExe pkg} "$@"
@@ -8,7 +9,10 @@ let
     in
     pkgs.symlinkJoin {
       name = "${lib.getName pkg}-wrapped";
-      paths = [ pkg launcher ];
+      paths = [
+        pkg
+        launcher
+      ];
     };
   scope = pkgs.lib.makeScope pkgs.newScope (self: {
     neuwld = self.callPackage ./neuwld { };
@@ -36,5 +40,6 @@ in
     swclock
     swiv
     mojito
-    hst;
+    hst
+    ;
 }

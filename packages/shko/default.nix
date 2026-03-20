@@ -44,9 +44,12 @@ stdenv.mkDerivation {
   postPatch =
     let
       configZigFile =
-        if lib.isDerivation configZig || builtins.isPath configZig then configZig else writeText "config.zig" configZig;
+        if lib.isDerivation configZig || builtins.isPath configZig then
+          configZig
+        else
+          writeText "config.zig" configZig;
     in
-    lib.optionalString (configZig != null)  "cp ${configZigFile} config.zig";
+    lib.optionalString (configZig != null) "cp ${configZigFile} config.zig";
 
   meta = {
     description = "Keyboard-oriented, floating, zomming, scrolling window manager";

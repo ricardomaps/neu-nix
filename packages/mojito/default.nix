@@ -18,7 +18,7 @@
 stdenv.mkDerivation {
   pname = "mojito";
   version = "0.0";
-  
+
   src = fetchFromSourcehut {
     owner = "~dlm";
     repo = "mojito";
