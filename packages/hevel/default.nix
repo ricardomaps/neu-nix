@@ -3,7 +3,6 @@
   writeText,
   stdenv,
   fetchFromSourcehut,
-  bmake,
   neuwld,
   neuswc,
   libinput,
@@ -26,12 +25,11 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~dlm";
     repo = "hevel";
-    rev = "bb9416a41ca7b33536a5f52a37752a854d68661c";
-    hash = "sha256-oThop0LaQQthkr+9rVX0kGi528IcP4l29z41AjxbNJM=";
+    rev = "cce195a2176163f099ed95c9bf7020033bdbbac9";
+    hash = "sha256-9B180ebZzOtv9eEICVpYSo558T0/UYEVELFztPzOX4o=";
   };
 
   nativeBuildInputs = [
-    bmake
     pkg-config
     wayland-scanner
   ];
