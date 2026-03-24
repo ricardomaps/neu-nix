@@ -6,6 +6,7 @@
   wayland,
   wayland-protocols,
   neuwld,
+  libdrm,
   fontconfig,
   pixman,
 }:
@@ -31,6 +32,7 @@ stdenv.mkDerivation {
     neuwld
     fontconfig
     pixman
+    libdrm
   ];
 
   makeFlags = [
