@@ -1,5 +1,6 @@
 {
   lib,
+  writeText,
   fetchFromSourcehut,
   stdenv,
   pkg-config,
@@ -11,7 +12,10 @@
   pixman,
   libxkbcommon,
   libdrm,
+  ncurses,
   patches ? [ ],
+  extraLibs ? [ ],
+  conf ? null,
 }:
 stdenv.mkDerivation {
   pname = "hst";
@@ -24,9 +28,15 @@ stdenv.mkDerivation {
     hash = "sha256-9BOPmt7Yjz0YfOfK6tOhqKg0l+so3xsXoeSG+5qUF0g=";
   };
 
+  outputs = [
+    "out"
+    "terminfo"
+  ];
+
   nativeBuildInputs = [
     pkg-config
     wayland-scanner
+    ncurses
   ];
 
   buildInputs = [
@@ -37,7 +47,8 @@ stdenv.mkDerivation {
     pixman
     libxkbcommon
     libdrm
-  ];
+  ]
+  ++ extraLibs;
 
   makeFlags = [
     "PREFIX=$(out)"
@@ -46,11 +57,20 @@ stdenv.mkDerivation {
 
   inherit patches;
 
-  # I'm not sure what goes wrong here, may look into it later
-  postPatch = ''
-    substituteInPlace Makefile \
-      --replace-fail "tic -sx st-wl.info" ""
+  # taken straight from the st nixpkgs package
+  preInstall = ''
+    export TERMINFO=$terminfo/share/terminfo
+    mkdir -p $TERMINFO $out/nix-support
+    echo "$terminfo" >> $out/nix-support/propagated-user-env-packages
   '';
+
+  postPatch =
+    let
+      configFile =
+        if lib.isDerivation conf || builtins.isPath conf then conf else writeText "config.h" conf;
+    in
+    lib.optionalString (conf != null) "cp ${configFile} config.h";
+
 
   meta = {
     description = "Fork of st-wl using neuwld";
