@@ -11,7 +11,7 @@
   pixman,
   libxkbcommon,
   libdrm,
-  patches ? [],
+  patches ? [ ],
 }:
 stdenv.mkDerivation {
   pname = "hst";

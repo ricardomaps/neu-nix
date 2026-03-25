@@ -58,10 +58,10 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
-    
+
     mkdir -p $out/bin
     install -m 755 hack $out/bin/
-    
+
     runHook postInstall
   '';
 }
