@@ -61,6 +61,11 @@ stdenv.mkDerivation {
 
   inherit patches;
 
+  postInstall = ''
+    mkdir -p $out/include
+    wayland-scanner client-header $src/protocol/swc.xml $out/include/swc-client-protocol.h
+  '';
+
   meta = {
     description = "Fork of swc for hevel window manager";
     homepage = "https://git.sr.ht/~shrub900/neuswc";
