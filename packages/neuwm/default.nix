@@ -21,8 +21,8 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~pfr";
     repo = "neuwm";
-    rev = "e03fb89bd19173784e643646c313cc41e85f3047";
-    hash = "sha256-FkZac9BdFvMmNklsibl7VcZxrLKHTW7jWk7HzjtOlBQ=";
+    rev = "43caec8c9a7f7e6a6ef42a8619160cac9176f74e";
+    hash = "sha256-6EI0iQKEElgoF0XrMst3X3jQxXY7yGWrwIJiLFuPv1Q=";
   };
 
   nativeBuildInputs = [
