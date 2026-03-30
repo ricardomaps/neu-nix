@@ -18,7 +18,7 @@
   libxcb-wm,
   stdenv,
   fetchFromSourcehut,
-  patches ? [],
+  patches ? [ ],
   xwaylandSupport ? true,
 }:
 stdenv.mkDerivation {

@@ -71,7 +71,6 @@ stdenv.mkDerivation {
     in
     lib.optionalString (conf != null) "cp ${configFile} config.h";
 
-
   meta = {
     description = "Fork of st-wl using neuwld";
     homepage = "https://git.sr.ht/~dlm/hst";
