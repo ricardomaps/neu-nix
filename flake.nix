@@ -36,5 +36,7 @@
         in
         callPackage ./shell.nix { }
       );
+
+      checks = forAllSystems (system: self.packages.${system});
     };
 }
