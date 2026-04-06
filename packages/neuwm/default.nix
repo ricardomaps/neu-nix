@@ -14,6 +14,7 @@
   libinput,
   libxkbcommon,
   fontconfig,
+  luajit,
 }:
 stdenv.mkDerivation {
   pname = "neuwm";
@@ -21,8 +22,8 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~pfr";
     repo = "neuwm";
-    rev = "43caec8c9a7f7e6a6ef42a8619160cac9176f74e";
-    hash = "sha256-6EI0iQKEElgoF0XrMst3X3jQxXY7yGWrwIJiLFuPv1Q=";
+    rev = "b3101d64e6f597e4c8d05e36e7918f6e9aa5cf30";
+    hash = "sha256-jKR7gs53nTRhQxysGLUsfau3XeaNv0NBhcbT1N9sgLc=";
   };
 
   nativeBuildInputs = [
@@ -41,6 +42,7 @@ stdenv.mkDerivation {
     libinput
     libxkbcommon
     fontconfig
+    luajit
   ];
 
   installPhase = ''
