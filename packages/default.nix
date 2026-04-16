@@ -28,6 +28,7 @@ let
     wsxwm = wrapWithSwcLaunch self.neuswc (self.callPackage ./wsxwm { });
     tohu = wrapWithSwcLaunch self.neuswc (self.callPackage ./tohu { });
     neuwm = wrapWithSwcLaunch self.neuswc (self.callPackage ./neuwm { });
+    howl = wrapWithSwcLaunch self.neuswc (self.callPackage ./howl { });
     swall = self.callPackage ./swall { };
     hack = self.callPackage ./hack { };
     swclock = self.callPackage ./swclock { };
@@ -52,5 +53,6 @@ in
     wsxwm
     tohu
     neuwm
+    howl
     ;
 }
