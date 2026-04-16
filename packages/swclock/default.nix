@@ -6,6 +6,7 @@
   wayland,
   wayland-protocols,
   neuwld,
+  libdrm,
   fontconfig,
   pixman,
 }:
@@ -31,6 +32,7 @@ stdenv.mkDerivation {
     neuwld
     fontconfig
     pixman
+    libdrm
   ];
 
   makeFlags = [
@@ -42,7 +44,7 @@ stdenv.mkDerivation {
 
     mkdir -p $out/bin/
     install -m 755 swclock $out/bin/
-    
+
     runHook postInstall
   '';
 

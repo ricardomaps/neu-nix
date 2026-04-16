@@ -11,6 +11,7 @@
   pixman,
   fontconfig,
   libxkbcommon,
+  libdrm,
 }:
 stdenv.mkDerivation {
   pname = "neumenu";
@@ -34,6 +35,7 @@ stdenv.mkDerivation {
     libxkbcommon
     fontconfig
     pixman
+    libdrm
   ];
 
   makeFlags = [

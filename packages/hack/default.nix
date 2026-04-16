@@ -1,4 +1,6 @@
 {
+  lib,
+  writeText,
   fetchFromSourcehut,
   stdenv,
   clang,
@@ -13,6 +15,7 @@
   plan9port-wayland,
   neuwld,
   openssl,
+  conf ? null,
 }:
 stdenv.mkDerivation {
   pname = "hack";
@@ -45,12 +48,19 @@ stdenv.mkDerivation {
 
   PLAN9 = "${plan9port-wayland}/plan9";
 
+  postPatch =
+    let
+      configFile =
+        if lib.isDerivation conf || builtins.isPath conf then conf else writeText "config.h" conf;
+    in
+    lib.optionalString (conf != null) "cp ${configFile} config.h";
+
   installPhase = ''
     runHook preInstall
-    
+
     mkdir -p $out/bin
     install -m 755 hack $out/bin/
-    
+
     runHook postInstall
   '';
 }

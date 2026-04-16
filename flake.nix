@@ -13,17 +13,30 @@
         "aarch64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      inherit (nixpkgs) lib;
     in
     {
-      overlays.default = final: prev: import ./packages { pkgs = final; inherit lib; };
+      overlays.default =
+        final: prev:
+        import ./. {
+          pkgs = final;
+        };
 
       packages = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
         in
-        import ./packages { inherit pkgs lib; }
+        import ./. { inherit pkgs; }
       );
+
+      devShell = forAllSystems (
+        system:
+        let
+          callPackage = nixpkgs.legacyPackages.${system}.callPackage;
+        in
+        callPackage ./shell.nix { }
+      );
+
+      checks = forAllSystems (system: self.packages.${system});
     };
 }
