@@ -3,20 +3,10 @@
   writeText,
   stdenv,
   fetchFromSourcehut,
-  neuwld,
   neuswc,
-  libinput,
-  pixman,
   pkg-config,
-  fontconfig,
   wayland,
-  wayland-scanner,
-  wayland-protocols,
-  libdrm,
   libxkbcommon,
-  libxcb,
-  libxcb-wm,
-  udev,
   conf ? null,
 }:
 stdenv.mkDerivation {
@@ -25,28 +15,18 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~dlm";
     repo = "hevel";
-    rev = "cce195a2176163f099ed95c9bf7020033bdbbac9";
-    hash = "sha256-9B180ebZzOtv9eEICVpYSo558T0/UYEVELFztPzOX4o=";
+    rev = "7ef61a5c0d4012417443734919ac723635cd5464";
+    hash = "sha256-ad4euUV+jJYG58aO9tfKyCq8sznDf2tHj7RmORqnP1o=";
   };
 
   nativeBuildInputs = [
     pkg-config
-    wayland-scanner
   ];
 
   buildInputs = [
-    libdrm
-    libinput
-    pixman
     neuswc
-    neuwld
     wayland
-    wayland-protocols
     libxkbcommon
-    libxcb
-    libxcb-wm
-    udev
-    fontconfig
   ];
 
   makeFlags = [
