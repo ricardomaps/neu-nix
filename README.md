@@ -11,7 +11,7 @@ The packages this flake currently provides are:
 - `neumenu`
 - `shko`
 - `hevel`
-- `slrgo`
+- `slgro`
 - `howl`
 - `swall`
 - `hack`
@@ -23,6 +23,7 @@ The packages this flake currently provides are:
 - `neuwm`
 - `wsxwm`
 - `klatka`
+- `wawa`
 
 ### Compositors
 
