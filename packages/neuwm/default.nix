@@ -3,15 +3,18 @@
   stdenv,
   fetchFromSourcehut,
   pkg-config,
-  pixman,
+  meson,
+  ninja,
   wayland,
+  pixman,
   neuswc,
   neuwld,
+  neuipc,
   libxcb,
   libxcb-wm,
-  udev,
   libdrm,
   libinput,
+  udev,
   libxkbcommon,
   fontconfig,
   luajit,
@@ -22,12 +25,14 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~pfr";
     repo = "neuwm";
-    rev = "e8a37b2a0072542bb9c9d8332f4f087050f59ca0";
-    hash = "sha256-lyTvTq/sJ0d4459SwRCDtdPeBz1o7mBbpSAn7Pyf4ow=";
+    rev = "2ab821a8dbc3ff274915eff17fef8f19025ee53c";
+    hash = "sha256-5tkq3TqOKlTncwIz43Hi+RheeJ2NigGS9E/OmR38qOU=";
   };
 
   nativeBuildInputs = [
     pkg-config
+    meson
+    ninja
   ];
 
   buildInputs = [
@@ -43,6 +48,7 @@ stdenv.mkDerivation {
     libxkbcommon
     fontconfig
     luajit
+    neuipc
   ];
 
   installPhase = ''
@@ -55,7 +61,7 @@ stdenv.mkDerivation {
   meta = {
     description = "A wayland compositor based neuswc, forked from wsxwm and inspired by hevel";
     homepage = "https://git.sr.ht/~pfr/neuwm";
-    license = lib.licenses.unlicense;
+    license = lib.licenses.isc;
     mainProgram = "neuwm";
   };
 }
