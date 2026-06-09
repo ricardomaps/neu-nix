@@ -18,8 +18,8 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~dlm";
     repo = "mojito";
-    rev = "713662f2f7620a74df59bdfa17a1d8d4715b9562";
-    hash = "sha256-OYVRc0rh+yoIXNo3kLt+G8ulvxx8W8foOUn+YdAou6U=";
+    rev = "4c6b988e1927cff3bd6ffe22c552c31cd356dfca";
+    hash = "sha256-8PKwCmJhLBuVXh47s+XzHeqy9w+YZhH1VtkuU1O7cfk=";
   };
 
   nativeBuildInputs = [
