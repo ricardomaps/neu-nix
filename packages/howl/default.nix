@@ -17,8 +17,8 @@ stdenv.mkDerivation {
     domain = "sr.ht";
     owner = "~wf";
     repo = "howl";
-    rev = "71bc1fa40587e49133f3fdbb1163771630b0e6c1";
-    hash = "sha256-xRdHH3FfoGOpmosGcL4JOR+N1F5zpPWvXTTW5LzViiE=";
+    rev = "90e1c42e47ce3764a2d8f3fcda95e9066bba334e";
+    hash = "sha256-oGyyspG5iumwNsnAA3WNTlfr8ocl8vW8K4CVYLhqYws=";
   };
 
   nativeBuildInputs = [
@@ -41,7 +41,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "A small Wayland compositor (howl) and its IPC client (howlc)";
-    homepage = "https://codeberg.org/wf/howl";
+    homepage = "https://srcdump.net/wf/howl/";
     license = lib.licenses.isc;
     mainProgram = "howl";
   };
