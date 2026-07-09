@@ -38,6 +38,7 @@ let
     hst = self.callPackage ./hst { };
     wawa = self.callPackage ./wawa { };
     neuipc = self.callPackage ./neuipc { };
+    uxn12 = self.callPackage ./uxn12 { };
   });
 in
 {
@@ -60,5 +61,6 @@ in
     klatka
     wawa
     neuipc
+    uxn12
     ;
 }
