@@ -20,8 +20,8 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~shrub900";
     repo = "neuwld";
-    rev = "edc0746f0d3abe5b4309fe79cfa0613d1fd0277a";
-    hash = "sha256-IKjGAn7XC65QcxiCxB3G2008ipfaE3LAsoV1f15GjR8=";
+    rev = "a86df06235cf1e1e78949593c18302850cf9d7cd";
+    hash = "sha256-MTzECQu0N33Q87vAuUALQd+JVaC647PY2XyOJw9yEpA=";
   };
 
   nativeBuildInputs = [
