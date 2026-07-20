@@ -8,23 +8,25 @@ A nix flake for neuswc and neuwld packages (hevel, howl, mojito...).
 
 The packages this flake currently provides are:
 
-- `neuwld`
+- `hack`
+- `hevel`
+- `howl`
+- `hst`
+- `klatka`
+- `mojito`
+- `neubar`
 - `neuswc`
 - `neumenu`
+- `neuwld`
+- `neuwm`
 - `shko`
-- `hevel`
 - `slgro`
-- `howl`
-- `hack`
 - `swclock`
 - `swiv`
-- `mojito`
-- `hst`
 - `tohu`
-- `neuwm`
-- `wsxwm`
-- `klatka`
+- `uxn12`
 - `wawa`
+- `wsxwm`
 
 ## Compositors
 
