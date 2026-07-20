@@ -39,6 +39,7 @@ let
     wawa = self.callPackage ./wawa { };
     neuipc = self.callPackage ./neuipc { };
     uxn12 = self.callPackage ./uxn12 { };
+    neubar = self.callPackage ./neubar { };
   });
 in
 {
@@ -62,5 +63,6 @@ in
     wawa
     neuipc
     uxn12
+    neubar
     ;
 }
