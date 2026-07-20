@@ -40,6 +40,7 @@ let
     neuipc = self.callPackage ./neuipc { };
     uxn12 = self.callPackage ./uxn12 { };
     neubar = self.callPackage ./neubar { };
+    neucolor = self.callPackage ./neucolor { };
   });
 in
 {
@@ -64,5 +65,6 @@ in
     neuipc
     uxn12
     neubar
+    neucolor
     ;
 }
