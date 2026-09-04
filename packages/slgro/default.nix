@@ -3,7 +3,7 @@
   meson,
   ninja,
   stdenv,
-  fetchFromCodeberg,
+  fetchgit,
   pkg-config,
   pixman,
   wayland,
@@ -20,12 +20,11 @@
 }:
 stdenv.mkDerivation {
   pname = "slgro";
-  version = "1.2";
-  src = fetchFromCodeberg {
-    owner = "0uppy";
-    repo = "slgro";
-    rev = "2576651c3954e2a32492a0984894b6485cbfff3a";
-    hash = "sha256-eA6+ZH5GFBockYWW0FSi/F/SIkhCzdjofQ1W5+yLBQM=";
+  version = "1.4";
+  src = fetchgit {
+    url = "https://git.ouppyawa.xyz/0uppy/slgro";
+    rev = "a4adaa665622ae858a9696d684db4b7c1379f9c8";
+    hash = "sha256-9jHNOPGzhqFJcxE/bhsfGIFhKSCQFgJT9x0m19Ff1qY=";
   };
 
   nativeBuildInputs = [
