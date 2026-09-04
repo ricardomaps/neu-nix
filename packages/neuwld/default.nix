@@ -11,16 +11,15 @@
   libdrm,
   wayland,
   stdenv,
-  fetchFromSourcehut,
+  fetchgit,
 }:
 stdenv.mkDerivation {
   pname = "neuwld";
   version = "0.0";
 
-  src = fetchFromSourcehut {
-    owner = "~shrub900";
-    repo = "neuwld";
-    rev = "554f827cadfdfcc276c709dbffa3b2b04c70cf7c";
+  src = fetchgit {
+    url = "https://srcdump.net/shrub/neuwld.git";
+    rev = "554f827";
     hash = "sha256-KAK4/TpNekaonN0yxi4/5mRdZL1uxYdGmwl41FRH5wU=";
   };
 
@@ -42,7 +41,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "A drawing library that targets Wayland";
-    homepage = "https://git.sr.ht/~shrub900/neuwld";
+    homepage = "https://srcdump.net/shrub/neuwld";
     license = lib.licenses.mit;
   };
 }
