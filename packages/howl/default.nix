@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromSourcehut,
+  fetchgit,
   pkg-config,
   neuswc,
   wayland,
@@ -13,11 +13,9 @@
 stdenv.mkDerivation {
   pname = "howl";
   version = "0.1.0";
-  src = fetchFromSourcehut {
-    domain = "sr.ht";
-    owner = "~wf";
-    repo = "howl";
-    rev = "52b7ba38135093b945079a93ee599c91f5e5e317";
+  src = fetchgit {
+    url = "https://srcdump.net/wf/howl.git";
+    rev = "52b7ba3";
     hash = "sha256-Lsv25r0nCNOEcYvq+62p/kIsAAM7MWr87yfNto+W6V0=";
   };
 
@@ -40,7 +38,7 @@ stdenv.mkDerivation {
   makeFlags = [ "PREFIX=$(out)" ];
 
   meta = {
-    description = "A small Wayland compositor (howl) and its IPC client (howlc)";
+    description = "Small Wayland compositor (howl) and its IPC client (howlc)";
     homepage = "https://srcdump.net/wf/howl/";
     license = lib.licenses.isc;
     mainProgram = "howl";
