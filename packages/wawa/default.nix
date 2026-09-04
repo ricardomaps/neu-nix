@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromCodeberg,
+  fetchgit,
   pkg-config,
   wayland,
   wayland-scanner,
@@ -10,11 +10,10 @@
 stdenv.mkDerivation {
   pname = "wawa";
   version = "1.0";
-  src = fetchFromCodeberg {
-    owner = "sewn";
-    repo = "wawa";
-    rev = "8ff9406b82c7c8c160b5507edd1e30079ea37fe2";
-    hash = "sha256-F7nPXi1zBnfNKSeZ2oQnGlfoJmKeSictPylpDBJtSRw=";
+  src = fetchgit {
+    url = "https://srcdump.net/sewn/wawa.git";
+    rev = "d6f85bf";
+    hash = "sha256-7umrzeCJHmYvXz7OD64TCZQssZ8167oInwVuhzUJ+jg=";
   };
 
   env.NIX_CFLAGS_COMPILE = "-Wno-incompatible-pointer-types";
@@ -35,7 +34,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "A simple, hackable, and distinctive Wayland wallpaper setter utilizing stb_image that targets wlr-layer-shell supported compositors, featuring tiling, spreading across monitors, along with fill, fit and stretching the wallpaper, with less SLOC than your average wallpaper setter.";
-    homepage = "https://codeberg.org/sewn/wawa";
+    homepage = "https://srcdump.net/sewn/wawa";
     license = lib.licenses.mit;
     mainProgram = "wawa";
   };
