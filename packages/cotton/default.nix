@@ -9,10 +9,10 @@
 }:
 stdenv.mkDerivation {
   pname = "cotton";
-  version = "0.2";
+  version = "v0.2.1";
   src = fetchgit {
-    url = "https://srcdump.net/soggy/cotton.git";
-    rev = "c6d7e65";
+    url = "https://git.ouppyawa.xyz/0uppy/cotton/";
+    rev = "c6d7e652f9fc78c73e778807527c618ce57fe3a8";
     hash = "sha256-zNY3lHGXm2e+/W8P7Ty106RnEkZ9ZCGt6uP8GD7le8w=";
   };
 
@@ -35,7 +35,7 @@ stdenv.mkDerivation {
   meta = {
     description = "Cotton is a tiny virtual computer that lives in your windows - it was written in C99 and has 64 KiB of memory and runs programs written in the cot programming language";
     license = lib.licenses.isc;
-    homepage = "https://srcdump.net/soggy/cotton/tree/main/index.html";
+    homepage = "https://git.ouppyawa.xyz/0uppy/cotton/";
     mainProgram = "cotton";
   };
 }
