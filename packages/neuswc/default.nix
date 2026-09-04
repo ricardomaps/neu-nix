@@ -17,7 +17,7 @@
   libxcb,
   libxcb-wm,
   stdenv,
-  fetchFromSourcehut,
+  fetchgit,
   patches ? [ ],
   xwaylandSupport ? true,
   extra ? true,
@@ -27,11 +27,10 @@ stdenv.mkDerivation {
   pname = "neuswc";
   version = "0.0";
 
-  src = fetchFromSourcehut {
-    owner = "~shrub900";
-    repo = "neuswc";
-    rev = "b541f39d14e5c81dc35eae6af10c8d959a9c9586";
-    hash = "sha256-Gl2DBy+2QLZE6VhsoukqT/VJyP4H9dT3dx3wsITzkIc=";
+  src = fetchgit {
+    url = "https://srcdump.net/shrub/neuswc.git";
+    rev = "5d32737";
+    hash = "sha256-6umDisPrdqxd7vXV6QANROOMBLUAQr4hUuDdrPEq80E=";
   };
 
   nativeBuildInputs = [
@@ -69,8 +68,8 @@ stdenv.mkDerivation {
   inherit patches;
 
   meta = {
-    description = "Fork of swc for hevel window manager";
-    homepage = "https://git.sr.ht/~shrub900/neuswc";
+    description = "Slighly less simple wayland compositing library";
+    homepage = "https://srcdump.net/shrub/neuswc";
     license = lib.licenses.isc;
     mainProgram = "swc-launch";
   };
