@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromSourcehut,
+  fetchgit,
   pkg-config,
   pixman,
   wayland,
@@ -19,11 +19,10 @@
 stdenv.mkDerivation {
   pname = "tohu";
   version = "0.0";
-  src = fetchFromSourcehut {
-    owner = "~shrub900";
-    repo = "tohu";
-    rev = "7c33428dbce080f8654aac544cfc5e4e628495ba";
-    hash = "sha256-24qWIcbnSUDzz3qTgsM1fCk/3ikleIZRqj0BOFkmZYo=";
+  src = fetchgit {
+    url = "https://srcdump.net/shrub/tohu.git";
+    rev = "4e18c2f";
+    hash = "sha256-3iLuL0aD7p/X4Qy/M7aKb44oR2cuO7iWOvCP6XOklXo=";
   };
 
   nativeBuildInputs = [
@@ -57,7 +56,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "floating window manager for swc";
-    homepage = "https://git.sr.ht/~shrub900/tohu";
+    homepage = "https://srcdump.net/shrub/tohu";
     license = lib.licenses.isc;
     mainProgram = "tohu";
   };
