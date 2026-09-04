@@ -54,7 +54,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "slgro is a floating (with keyboard-driven window movement, resizing and added centering and snapping) window manager for swc configurable using lua";
-    homepage = "https://codeberg.org/0uppy/slgro";
+    homepage = "https://git.ouppyawa.xyz/0uppy/slgro";
     license = lib.licenses.isc;
     mainProgram = "slgro";
   };
