@@ -20,9 +20,13 @@
   fetchgit,
   patches ? [ ],
   xwaylandSupport ? true,
-  extra ? true,
-  example ? false,
-}:
+  udevSupport ? true,
+  videoBackend ? "drm",
+  }:
+
+assert lib.assertOneOf "videoBackend" videoBackend [ "drm" "fb" ];
+assert lib.assertMsg (xwaylandSupport -> videoBackend == "drm") "Xwayland requires the DRM video backend";
+
 stdenv.mkDerivation {
   pname = "neuswc";
   version = "0.0";
@@ -33,44 +37,48 @@ stdenv.mkDerivation {
     hash = "sha256-6umDisPrdqxd7vXV6QANROOMBLUAQr4hUuDdrPEq80E=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   nativeBuildInputs = [
     meson
     ninja
     pkg-config
     wayland-scanner
-    libdrm
   ];
 
   buildInputs = [
     neuwld
     wayland
-    wayland-protocols
     pixman
-    libdrm
-    udev
     libxkbcommon
-    libinput
     fontconfig
+    wayland-protocols
   ]
   ++ lib.optionals xwaylandSupport [
     xwayland
     libxcb
     libxcb-wm
-  ];
+  ]
+  ++ lib.optional stdenv.hostPlatform.isLinux libinput
+  ++ lib.optional (stdenv.hostPlatform.isLinux && udevSupport) udev
+  ++ lib.optional (videoBackend == "drm") libdrm;
 
   mesonAutoFeatures = "auto";
 
   mesonFlags = [
-    "-Dextra=${lib.boolToString extra}"
-    "-Dexample=${lib.boolToString example}"
+    (lib.mesonEnable "xwayland" xwaylandSupport)
+    (lib.mesonEnable "udev" udevSupport)
+    (lib.mesonOption "video" videoBackend)
   ];
 
   inherit patches;
 
   meta = {
-    description = "Slighly less simple wayland compositing library";
+    description = "Fork of swc created by wayland.fyi.";
     homepage = "https://srcdump.net/shrub/neuswc";
-    license = lib.licenses.isc;
+    platforms = lib.platforms.unix;
+    license = lib.licenses.mit;
     mainProgram = "swc-launch";
   };
 }
