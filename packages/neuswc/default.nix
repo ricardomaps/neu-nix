@@ -20,7 +20,6 @@
   fetchgit,
   patches ? [ ],
   xwaylandSupport ? true,
-  udevSupport ? true,
   videoBackend ? "drm",
   }:
 
@@ -48,7 +47,7 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-    neuwld
+    (neuwld.override { drmSupport = videoBackend == "drm"; })
     wayland
     pixman
     libxkbcommon
@@ -60,15 +59,13 @@ stdenv.mkDerivation {
     libxcb
     libxcb-wm
   ]
-  ++ lib.optional stdenv.hostPlatform.isLinux libinput
-  ++ lib.optional (stdenv.hostPlatform.isLinux && udevSupport) udev
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ libinput udev ]
   ++ lib.optional (videoBackend == "drm") libdrm;
 
   mesonAutoFeatures = "auto";
 
   mesonFlags = [
     (lib.mesonEnable "xwayland" xwaylandSupport)
-    (lib.mesonEnable "udev" udevSupport)
     (lib.mesonOption "video" videoBackend)
   ];
 

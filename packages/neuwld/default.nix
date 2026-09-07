@@ -12,6 +12,9 @@
   wayland,
   stdenv,
   fetchgit,
+  drmSupport ? true,
+  waylandSupport ? true,
+  documentationSupport ? false,
 }:
 stdenv.mkDerivation {
   pname = "neuwld";
@@ -23,24 +26,35 @@ stdenv.mkDerivation {
     hash = "sha256-KAK4/TpNekaonN0yxi4/5mRdZL1uxYdGmwl41FRH5wU=";
   };
 
+  strictDeps = true;
+  __structuredArgs = true;
+
   nativeBuildInputs = [
     meson
-    pkg-config
-    wayland-scanner
     ninja
-    doxygen
-  ];
+    pkg-config
+  ]
+  ++ lib.optional (waylandSupport && drmSupport) wayland-scanner
+  ++ lib.optional documentationSupport doxygen;
 
   buildInputs = [
     fontconfig
     pixman
     freetype
-    libdrm
-    wayland
+  ]
+  ++ lib.optional drmSupport libdrm
+  ++ lib.optional waylandSupport wayland;
+
+  mesonAutoFeatures = "auto";
+
+  mesonFlags = [
+    (lib.mesonEnable "wayland" waylandSupport)
+    (lib.mesonEnable "drm" drmSupport)
   ];
 
   meta = {
-    description = "A drawing library that targets Wayland";
+    description = "Drawing library that targets Wayland";
+    platforms = lib.platforms.unix;
     homepage = "https://srcdump.net/shrub/neuwld";
     license = lib.licenses.mit;
   };
