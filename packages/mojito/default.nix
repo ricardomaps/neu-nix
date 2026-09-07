@@ -23,10 +23,12 @@ stdenv.mkDerivation {
     hash = "sha256-wEggHpGKpR9oJvRVbyYeqjO683XaOL47czHGqPSoXKo=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   nativeBuildInputs = [
     pkg-config
     wayland-scanner
-    wayland-protocols
   ];
 
   buildInputs = [
@@ -37,6 +39,8 @@ stdenv.mkDerivation {
     neuswc
     fontconfig
     wayland
+    # wayland-scanner
+    wayland-protocols
   ];
 
   makeFlags = [

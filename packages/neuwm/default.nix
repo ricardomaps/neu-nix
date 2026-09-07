@@ -29,6 +29,9 @@ stdenv.mkDerivation {
     hash = "sha256-5tkq3TqOKlTncwIz43Hi+RheeJ2NigGS9E/OmR38qOU=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   nativeBuildInputs = [
     pkg-config
     meson

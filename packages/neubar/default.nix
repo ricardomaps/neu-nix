@@ -13,6 +13,9 @@ stdenv.mkDerivation {
     hash = "sha256-5rTX7xYG2DQtGyhNFfEaF/isUtubpoiRFlPVkWWBWYo=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   makeFlags = [
     "PREFIX=$(out)"
   ];

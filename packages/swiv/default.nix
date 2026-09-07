@@ -20,6 +20,9 @@ stdenv.mkDerivation {
     hash = "sha256-z0a5b6yn6ti4oy63SpOZtbYziNOOYG0Z0Er64pvSlFw=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   nativeBuildInputs = [
     pkg-config
     wayland-scanner

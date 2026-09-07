@@ -28,6 +28,9 @@ stdenv.mkDerivation {
     hash = "sha256-9BOPmt7Yjz0YfOfK6tOhqKg0l+so3xsXoeSG+5qUF0g=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   outputs = [
     "out"
     "terminfo"

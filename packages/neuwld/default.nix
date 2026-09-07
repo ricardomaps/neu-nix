@@ -27,7 +27,7 @@ stdenv.mkDerivation {
   };
 
   strictDeps = true;
-  __structuredArgs = true;
+  __structuredAttrs = true;
 
   nativeBuildInputs = [
     meson

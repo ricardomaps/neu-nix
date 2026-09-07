@@ -25,6 +25,9 @@ stdenv.mkDerivation {
     hash = "sha256-5ht8gt3hHq3CHQSNSBCm4TcNtDuFmajLvDnPUJGRJMk=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   nativeBuildInputs = [
     pkg-config
   ];

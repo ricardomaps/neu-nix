@@ -16,16 +16,19 @@ stdenv.mkDerivation {
     hash = "sha256-7umrzeCJHmYvXz7OD64TCZQssZ8167oInwVuhzUJ+jg=";
   };
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   env.NIX_CFLAGS_COMPILE = "-Wno-incompatible-pointer-types";
   
   nativeBuildInputs = [
     pkg-config
-    wayland-scanner
-    wayland-protocols
   ];
 
   buildInputs = [
     wayland
+    wayland-scanner
+    wayland-protocols
   ];
 
   makeFlags = [
