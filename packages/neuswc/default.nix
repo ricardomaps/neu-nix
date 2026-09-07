@@ -59,6 +59,7 @@ stdenv.mkDerivation {
     libxcb
     libxcb-wm
   ]
+  # the oasislinux libinput fork is the only way to build with libinput but without udev
   ++ lib.optionals stdenv.hostPlatform.isLinux [ libinput udev ]
   ++ lib.optional (videoBackend == "drm") libdrm;
 
