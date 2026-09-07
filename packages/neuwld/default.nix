@@ -50,6 +50,7 @@ stdenv.mkDerivation {
   mesonFlags = [
     (lib.mesonEnable "wayland" waylandSupport)
     (lib.mesonEnable "drm" drmSupport)
+    (lib.mesonEnable "doxygen" documentationSupport)
   ];
 
   meta = {
