@@ -24,9 +24,12 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~shrub900";
     repo = "hack";
-    rev = "346ada49eaa2fb47d81822c567fc5f0876163f80";
-    hash = "sha256-+sTAfX5UeWoLbvjcDIcg4PGMdv6lWPgWyoKPZhMYq24=";
+    rev = "011c9b1950310bbcc4a321f31f2452543785d3df";
+    hash = "sha256-trWZCuH/57pleika7Wux9jsr8q3j/mD1Sk2g8SWQ7Do=";
   };
+
+  __structuredAttrs = true;
+  strictDeps = true;
 
   nativeBuildInputs = [
     clang
@@ -46,7 +49,7 @@ stdenv.mkDerivation {
     openssl
   ];
 
-  PLAN9 = "${plan9port-wayland}/plan9";
+  env.PLAN9 = "${plan9port-wayland}/plan9";
 
   postPatch =
     let
