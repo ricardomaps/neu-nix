@@ -1,6 +1,15 @@
 name: "CI"
 on:
   push:
+    paths:
+      - "packages/**"
+      - "flake.nix"
+      - "flake.lock"
+  pull_request:
+    paths:
+      - "packages/**"
+      - "flake.nix"
+      - "flake.lock"
 jobs:
   tests:
     runs-on: ubuntu-latest
