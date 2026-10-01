@@ -8,12 +8,14 @@ A nix flake for neuswc and neuwld packages (hevel, howl, mojito...).
 
 The packages this flake currently provides are:
 
+- `cotton`
 - `hack`
 - `hevel`
 - `howl`
 - `hst`
 - `klatka`
 - `mojito`
+- `mot`
 - `neubar`
 - `neucolor`
 - `neuipc`
@@ -89,6 +91,23 @@ Alternatively, you can use the flake's overlay:
 ```
 
 Take a look [here](https://wayland.fyi/) for information about the packages, what they are and how to use them.
+
+## Binary cache
+
+Prebuilt packages are available from Cachix. Either run:
+
+```
+cachix use ricardomaps
+```
+
+or add this to your NixOS configuration:
+
+```nix
+nix.settings = {
+  substituters = [ "https://ricardomaps.cachix.org" ];
+  trusted-public-keys = [ "ricardomaps.cachix.org-1:AVvxxC1GomUHR6bxXYgkh/XsIr/yUbg8B/tKpN70Opw=" ];
+};
+```
 
 ## Configuring
 
