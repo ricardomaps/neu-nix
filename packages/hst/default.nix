@@ -24,8 +24,8 @@ stdenv.mkDerivation {
   src = fetchFromSourcehut {
     owner = "~dlm";
     repo = "hst";
-    rev = "6187ef823d1fabe2139aed54dbb7a7e28c6d8ff4";
-    hash = "sha256-9BOPmt7Yjz0YfOfK6tOhqKg0l+so3xsXoeSG+5qUF0g=";
+    rev = "5906386421930127f450c3450a4600536e4cd5c6";
+    hash = "sha256-Rng0qnKZCPYOdSz2gkhJZSG/MPh7KxuhGK/DoLc4MKo=";
   };
 
   strictDeps = true;
