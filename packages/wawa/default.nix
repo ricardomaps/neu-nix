@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchgit,
+  fetchFromCodeberg,
   pkg-config,
   wayland,
   wayland-scanner,
@@ -10,10 +10,11 @@
 stdenv.mkDerivation {
   pname = "wawa";
   version = "1.0";
-  src = fetchgit {
-    url = "https://srcdump.net/sewn/wawa.git";
-    rev = "d6f85bf";
-    hash = "sha256-7umrzeCJHmYvXz7OD64TCZQssZ8167oInwVuhzUJ+jg=";
+  src = fetchFromCodeberg {
+    owner = "sewn";
+    repo = "wawa";
+    rev = "5446559073c42a8b7676d364e4e1638427e1492d";
+    hash = "sha256-z0tvAP+VVFccsRpyynw4w/QYxqfFgnJwIpLZVzo9wP0=";
   };
 
   strictDeps = true;
