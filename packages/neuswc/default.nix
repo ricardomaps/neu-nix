@@ -32,8 +32,8 @@ stdenv.mkDerivation {
 
   src = fetchgit {
     url = "https://srcdump.net/shrub/neuswc.git";
-    rev = "5d32737";
-    hash = "sha256-6umDisPrdqxd7vXV6QANROOMBLUAQr4hUuDdrPEq80E=";
+    rev = "d1ec3e24c7e0b7400dc5c0e4dfb7194e805a489d";
+    hash = "sha256-6QOMs94SrW/RnYd8oZFgx5IBipDCH61cnEUdVNgknPo=";
   };
 
   strictDeps = true;
