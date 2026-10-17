@@ -43,6 +43,7 @@ let
     cotton = self.callPackage ./cotton { };
     neubar = self.callPackage ./neubar { };
     neucolor = self.callPackage ./neucolor { };
+    wld = self.callPackage ./wld { };
   });
 in
 {
@@ -70,5 +71,6 @@ in
     neucolor
     mot
     cotton
+    wld
     ;
 }
