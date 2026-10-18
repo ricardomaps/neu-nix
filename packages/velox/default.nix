@@ -1,10 +1,16 @@
 {
+  lib,
   stdenv,
   fetchFromGitHub,
+  pkg-config,
   wayland-scanner,
   wayland,
+  fontconfig,
   pixman,
-  pkg-config,
+  swc,
+  wld,
+  libinput,
+  libxkbcommon,
 }:
 stdenv.mkDerivation {
   name = "velox";
@@ -25,11 +31,22 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
+    swc
+    libxkbcommon
+    libinput
+    wld
     wayland
+    fontconfig
     pixman
   ];
   
   makeFlags = [
     "PREFIX=$(out)"
   ];
+
+  meta = {
+    description = "Simple window manager based on swc";
+    homepage = "https://github.com/michaelforney/velox";
+    license = lib.licenses.mit;
+  };
 }

@@ -45,6 +45,7 @@ let
     neucolor = self.callPackage ./neucolor { };
     wld = self.callPackage ./wld { };
     swc = self.callPackage ./swc { };
+    velox = self.callPackage ./velox { };
   });
 in
 {
@@ -74,5 +75,6 @@ in
     cotton
     wld
     swc
+    velox
     ;
 }
