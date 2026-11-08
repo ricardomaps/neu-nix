@@ -21,10 +21,15 @@
   patches ? [ ],
   xwaylandSupport ? true,
   videoBackend ? "drm",
-  }:
+}:
 
-assert lib.assertOneOf "videoBackend" videoBackend [ "drm" "fb" ];
-assert lib.assertMsg (xwaylandSupport -> videoBackend == "drm") "Xwayland requires the DRM video backend";
+assert lib.assertOneOf "videoBackend" videoBackend [
+  "drm"
+  "fb"
+];
+assert lib.assertMsg (
+  xwaylandSupport -> videoBackend == "drm"
+) "Xwayland requires the DRM video backend";
 
 stdenv.mkDerivation {
   pname = "neuswc";
@@ -32,8 +37,8 @@ stdenv.mkDerivation {
 
   src = fetchgit {
     url = "https://srcdump.net/shrub/neuswc.git";
-    rev = "d1ec3e24c7e0b7400dc5c0e4dfb7194e805a489d";
-    hash = "sha256-6QOMs94SrW/RnYd8oZFgx5IBipDCH61cnEUdVNgknPo=";
+    rev = "050726e";
+    hash = "sha256-z4FY1vVJ0eEKLRO3TvEp3KVDTFHGi3wE7tVqC8NgS+0=";
   };
 
   strictDeps = true;
@@ -60,8 +65,16 @@ stdenv.mkDerivation {
     libxcb-wm
   ]
   # the oasislinux libinput fork is the only way to build with libinput but without udev
-  ++ lib.optionals stdenv.hostPlatform.isLinux [ libinput udev ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    libinput
+    udev
+  ]
   ++ lib.optional (videoBackend == "drm") libdrm;
+
+  postPatch = lib.optionalString xwaylandSupport ''
+    substituteInPlace libswc/xserver.c \
+      --replace-fail 'execlp("Xwayland",' 'execlp("${lib.getExe xwayland}",'
+  '';
 
   mesonAutoFeatures = "auto";
 
