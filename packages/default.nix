@@ -46,6 +46,7 @@ let
     wld = self.callPackage ./wld { };
     swc = self.callPackage ./swc { };
     velox = self.callPackage ./velox { };
+    kav = self.callPackage ./kav { };
   });
 in
 {
@@ -76,5 +77,6 @@ in
     wld
     swc
     velox
+    kav
     ;
 }
