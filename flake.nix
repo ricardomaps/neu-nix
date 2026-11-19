@@ -24,7 +24,7 @@
       packages = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
+          pkgs = (import nixpkgs { inherit system; config.allowUnfree = true; }).extend self.overlays.default;
         in
         import ./. { inherit pkgs; }
       );

@@ -29,6 +29,6 @@ stdenv.mkDerivation {
   meta = {
     description = "A programming language!";
     homepage = "https://srcdump.net/shrub/kav";
-    license = lib.licenses.mit;
+    license = lib.licenses.unfree;
   };
 }
