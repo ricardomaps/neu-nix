@@ -9,8 +9,8 @@ stdenv.mkDerivation {
   version = "0.0";
   src = fetchgit {
     url = "https://srcdump.net/shrub/kav.git";
-    rev = "f9465c3";
-    hash = "sha256-4pCWIVAaWiqOKNR19vARlqtd46Xnzwlrtxuofb9x9iM=";
+    rev = "f15c861";
+    hash = "sha256-CNrzs6paSHaLj7fBq6ad7kne0lqmgTroMmuQ3xOrdEo=";
   };
 
   nativeBuildInputs = [
