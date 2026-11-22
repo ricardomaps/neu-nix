@@ -3,32 +3,43 @@
   fetchgit,
   lib,
   re2c,
+  makeWrapper,
+  qbe,
+  glibc,
 }:
+
 stdenv.mkDerivation {
   pname = "kav";
   version = "0.0";
   src = fetchgit {
     url = "https://srcdump.net/shrub/kav.git";
-    rev = "f15c861";
-    hash = "sha256-CNrzs6paSHaLj7fBq6ad7kne0lqmgTroMmuQ3xOrdEo=";
+    rev = "0ae9a6e";
+    hash = "sha256-4yzCCNvnu+erzA4Lo99U/T/j/cRrYd1xXmIwiYAWk0o=";
   };
+
+  __structuredAttrs = true;
+  strictDeps = true;
 
   nativeBuildInputs = [
     re2c
+    makeWrapper
   ];
 
-  installPhase = ''
-    runHook preInstall
+  makeFlags = [
+    "PREFIX=$(out)"
+  ];
 
-    mkdir -p $out/bin
-    cp kav $out/bin
-
-    runHook postIntall
+  postInstall = ''
+    wrapProgram $out/bin/kav \
+      --set-default KAVPATH $out/lib/kav \
+      --prefix PATH : ${lib.makeBinPath [ qbe stdenv.cc ]} \
+      --prefix LIBRARY_PATH : ${glibc.static}/lib
   '';
 
   meta = {
     description = "A programming language!";
     homepage = "https://srcdump.net/shrub/kav";
     license = lib.licenses.unfree;
+    mainProgram = "kav";
   };
 }
