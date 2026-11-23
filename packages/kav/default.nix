@@ -5,7 +5,8 @@
   re2c,
   makeWrapper,
   qbe,
-  glibc,
+  musl,
+  pkgsMusl,
 }:
 
 stdenv.mkDerivation {
@@ -32,8 +33,8 @@ stdenv.mkDerivation {
   postInstall = ''
     wrapProgram $out/bin/kav \
       --set-default KAVPATH $out/lib/kav \
-      --prefix PATH : ${lib.makeBinPath [ qbe stdenv.cc ]} \
-      --prefix LIBRARY_PATH : ${glibc.static}/lib
+      --prefix PATH : ${lib.makeBinPath [ qbe pkgsMusl.stdenv.cc ]} \
+      --prefix LIBRARY_PATH : ${musl}/lib
   '';
 
   meta = {
