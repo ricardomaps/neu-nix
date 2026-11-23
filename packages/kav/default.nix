@@ -14,8 +14,8 @@ stdenv.mkDerivation {
   version = "0.0";
   src = fetchgit {
     url = "https://srcdump.net/shrub/kav.git";
-    rev = "0ae9a6e";
-    hash = "sha256-4yzCCNvnu+erzA4Lo99U/T/j/cRrYd1xXmIwiYAWk0o=";
+    rev = "fe09c9e";
+    hash = "sha256-pSoZ2ShUO2jl602hoak0rnWhpDorY0uknDFYyCNNnJA=";
   };
 
   __structuredAttrs = true;
